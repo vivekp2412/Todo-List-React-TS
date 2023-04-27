@@ -14,14 +14,14 @@ type dateObjectFormat={
 }
 // Returns a card Where dare and Task are Displayed
 function Card():JSX.Element {
-  const [showInput,setShowInput]=useState(false);
+  const [showInput,setShowInput]=useState<boolean>(false);
     const date:dateObjectFormat = useDate();
     //Function to Show the input field
-    function handleAddEvent(){
+    function handleAddEvent():void{
             setShowInput(true)
        }
     // Function to hide the input field
-    function handleEscape(){
+    function handleEscape():void{
             setShowInput(false);
     }
     return (
