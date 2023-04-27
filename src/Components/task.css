@@ -1,8 +1,22 @@
+.tasklist::-webkit-scrollbar {
+    width: 6px;
+}
+.tasklist::-webkit-scrollbar-track {
+     background-color: #e4e4e4;
+     border-radius: 100px;  
+}
+.tasklist::-webkit-scrollbar-thumb {
+     background-color: #50e3a39d;
+     border-radius: 100px;
+ }
 .tasklist{
     margin:2rem auto;
     display: flex;
     flex-direction: column;
     gap: 25px;
+    max-height: 75%;
+    overflow: auto;
+    padding: 10px;
 }
 .todo-item{
     display: flex;
@@ -16,8 +30,8 @@
     color: #AAAAAA !important;
 }
 .checkBox{
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     transition: box-shadow 0.3s;
     margin: auto 0;

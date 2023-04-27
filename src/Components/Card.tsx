@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import useDate from '../Hooks/useDate';
 import Add from './Add';
 import "./Card.css"
@@ -15,15 +15,16 @@ type dateObjectFormat={
 // Returns a card Where dare and Task are Displayed
 function Card():JSX.Element {
   const [showInput,setShowInput]=useState(false);
+
     const date:dateObjectFormat = useDate();
     //Function to Show the input field
-    function handleAddEvent(){
-            setShowInput(true)
-       }
+    const handleAddEvent = useCallback(() => {
+        return setShowInput(true)
+   },[showInput])
     // Function to hide the input field
-    function handleEscape(){
-            setShowInput(false);
-    }
+    const handleEscape = useCallback(() => {
+        return setShowInput(false);
+},[showInput])
     return (
         <div className='card'>
             <div className='date-day'>          

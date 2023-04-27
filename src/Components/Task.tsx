@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useReducer } from 'react';
+import reducer from '../store/reducer';
 import "./task.css";
 //Type Defined for the Task Array 
 type todoArray = {
@@ -9,16 +10,21 @@ type todoArray = {
 // Return all the Task for Displaying
 function Task():JSX.Element {
     // Dummy Task Array
-    const taskArray:todoArray[] = [{id:4444,text:"Buy new SweatShirt",completed:true},{id:4444,text:"Begin Promotioonal Phase",completed:true},{id:4444,text:"Read a Article",completed:false},{id:4444,text:"Try to fall asleep",completed:false},{id:4444,text:"Water Sherlock",completed:false},{id:4444,text:"Begin QA for Product",completed:false},{id:4444,text:"Go for a walk",completed:false}]
+    const initailtaskList = JSON.parse(localStorage.getItem("Tasks")) || [];
+    const [state,dispatch]=useReducer(reducer,initailtaskList);
+    const taskArray=JSON.parse(localStorage.getItem("Tasks"));
+    function updateTodo(){
     
+    }
     return(
         <ul className='tasklist'>
-            {taskArray.map((task)=>(
+            
+            {taskArray ? taskArray.map((task)=>(
                     <li className='todo-item'>
                     <p className={task.completed?'completedTask-text':"incompletedTask-text"}>{task.text}</p>
-                    <input type="checkbox" className="checkBox" checked={task.completed?true:false}/>
+                    <input type="checkbox"  className="checkBox" onClick={()=>{dispatch({type:"UPDATE",payload:task.id})}} checked={task.completed?true:false}/>
                     </li>
-            ))}
+            )):<h1>No task</h1>}
         </ul>    
     )
 }
