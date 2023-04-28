@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import "./Add.css"
+//Type Defined for the Prop
 type Props = {
   event:()=>void
 }
