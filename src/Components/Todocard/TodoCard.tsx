@@ -93,7 +93,7 @@ function Card(): JSX.Element {
       </div>
       <Task state={state} dispatch={dispatch} />
       {showInput ? (
-        <>
+        <div className="inputfield">
           <input
             className="taskInput"
             value={task.text}
@@ -114,7 +114,7 @@ function Card(): JSX.Element {
             autoFocus
           ></input>
           <h6 className="instruction">Enter "DELETE" to Clear the list</h6>
-        </>
+        </div>
       ) : (
         <>
           <button className="add" onClick={handleAddEvent}>

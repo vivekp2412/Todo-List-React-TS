@@ -61,9 +61,14 @@
 }
 .instruction{
   position: absolute;
-  bottom: 20px;
-  margin: 0px 7px;
-  font-size: 15px;
+    bottom: 20px;
+    margin: -11px 13%;
+    font-size: 15px;
+}
+.inputfield{
+  display: flex;
+  justify-content: center;
+
 }
 
 /* ADD Button CSS */
