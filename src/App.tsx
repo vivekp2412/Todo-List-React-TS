@@ -1,14 +1,12 @@
-import { useState } from 'react'
-import './App.css'
-import Card from './Components/Card'
+import "./App.css";
+import TodoCard from "./Components/Todocard/TodoCard";
 
-function App():JSX.Element {
-
+function App(): JSX.Element {
   return (
-  <div className='App'>
-  <Card/>
-  </div>
-  )
+    <div className="App">
+      <TodoCard />
+    </div>
+  );
 }
 
-export default App
+export default App;
