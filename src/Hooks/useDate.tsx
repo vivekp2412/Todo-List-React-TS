@@ -1,7 +1,3 @@
-import React, { useMemo } from "react";
-import { useState } from "react";
-import { useEffect } from "react";
-
 // Format of the data to be Returned by use Date Hook
 type dateObjectFormat = {
   month: string;
@@ -11,13 +7,6 @@ type dateObjectFormat = {
 };
 // Use date Hook Made which returns the Updated date
 const useDate = (): dateObjectFormat => {
-  const [dateObject, setDate] = useState<dateObjectFormat>({
-    month: "",
-    day: "",
-    year: 0,
-    dateValue: 0,
-  });
-  const [date, setdate] = useState(new Date().getSeconds());
   const Weekdays: string[] = [
     "Sunday",
     "Monday",
@@ -41,17 +30,18 @@ const useDate = (): dateObjectFormat => {
     "nov",
     "dec",
   ];
-  useEffect(() => {
-    let timer: number = setInterval(() => {
-      let date: Date = new Date();
-      let month: string = Months[date.getMonth()];
-      let day: string = Weekdays[date.getDay()];
-      let year: number = date.getFullYear();
-      let dateValue: number = date.getDate();
-      setDate({ month, day, year, dateValue });
-    }, 1);
-    return () => clearInterval(timer);
-  });
+
+  let date: Date = new Date();
+  let month: string = Months[date.getMonth()];
+  let day: string = Weekdays[date.getDay()];
+  let year: number = date.getFullYear();
+  let dateValue: number = date.getDate();
+  let dateObject = {
+    month,
+    day,
+    year,
+    dateValue,
+  };
 
   return dateObject;
 };

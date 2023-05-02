@@ -25,9 +25,13 @@
 }
 .incompletedTask-text {
   color: #555555;
+  max-width: 266px;
+  overflow-wrap: break-word;
 }
 .completedTask-text {
   color: #aaaaaa;
+  max-width: 266px;
+  overflow-wrap: break-word;
 }
 .checkBox {
   width: 23px;

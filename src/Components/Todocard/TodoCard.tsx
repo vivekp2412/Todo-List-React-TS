@@ -53,6 +53,7 @@ function Card(): JSX.Element {
   //Function add the input data as Task
   function handleSubmit(e: React.FormEvent): void {
     e.preventDefault();
+
     if (task.text == "DELETE") {
       dispatch({ type: "DELETE" });
       handleEscape();
@@ -100,13 +101,9 @@ function Card(): JSX.Element {
             onChange={(e) =>
               setTask((prev) => ({ ...prev, text: e.target.value }))
             }
-            maxLength={23}
             type="text"
             placeholder="Enter the Task"
             onKeyDown={(e) => {
-              if (e.key === "Escape") {
-                handleEscape();
-              }
               if (e.key === "Enter") {
                 handleSubmit(e);
               }
