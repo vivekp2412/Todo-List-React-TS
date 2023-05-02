@@ -1,10 +1,10 @@
-.App{
+.App {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
 }
-.card{
+.card {
   background-color: #fff;
   height: 42rem;
   max-width: 400px;
@@ -12,43 +12,42 @@
   padding: 2.5em;
   margin: 15px;
   position: relative;
-  color: #56596A;
+  color: #56596a;
 }
-.date-month-year{
+.date-month-year {
   flex-basis: 100px;
   display: flex;
   align-items: center;
-  gap:12px
+  gap: 12px;
 }
-.date-day{
+.date-day {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.day{
+.day {
   display: flex;
   align-items: center;
 }
-.month-year{
+.month-year {
   display: flex;
   flex-direction: column;
 }
-.dateValue{
+.dateValue {
   font-size: 2.8rem;
   font-weight: 700;
 }
-.monthValue{
+.monthValue {
   font-weight: 500;
- 
 }
-.dayValue{
+.dayValue {
   font-size: 1.1rem;
-  font-weight:500;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.2px;
 }
 
-.taskInput{
+.taskInput {
   width: 80%;
   height: 45px;
   padding: 5%;
@@ -57,22 +56,21 @@
   margin: 0 6%;
   position: absolute;
   bottom: 60px;
-  right: 19px
+  right: 19px;
 }
-.instruction{
+.instruction {
   position: absolute;
-    bottom: 20px;
-    margin: -11px 13%;
-    font-size: 15px;
+  bottom: 20px;
+  margin: -11px 13%;
+  font-size: 15px;
 }
-.inputfield{
+.inputfield {
   display: flex;
   justify-content: center;
-
 }
 
 /* ADD Button CSS */
-.add{
+.add {
   height: 5.2rem;
   width: 5.2rem;
   border-radius: 100%;
@@ -86,17 +84,17 @@
   left: 50%;
   cursor: pointer;
   border: none;
-  transform: translate(-50%,50%);
+  transform: translate(-50%, 50%);
 }
-.plus{
+.plus {
   font-size: 50px;
   color: #999;
 }
-.padding{
+.padding {
   padding: 10px;
 }
 @media only screen and (max-width: 400px) {
-  .card{
+  .card {
     max-width: 90%;
     margin: 5%;
   }

@@ -1,12 +1,12 @@
 // Format of the data to be Returned by use Date Hook
-type dateObjectFormat = {
+type DateObjectFormat = {
   month: string;
   day: string;
   dateValue: number;
   year: number;
 };
 // Use date Hook Made which returns the Updated date
-const useDate = (): dateObjectFormat => {
+const useDate = (): DateObjectFormat => {
   const Weekdays: string[] = [
     "Sunday",
     "Monday",

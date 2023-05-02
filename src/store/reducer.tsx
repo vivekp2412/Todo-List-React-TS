@@ -4,15 +4,20 @@ import Swal from "sweetalert2";
 import Task from "../Tasks/Task";
 
 //Type Declaration
-type task = {
+type Task = {
   id: number;
   text: string;
   createdAt: number;
   completed: boolean;
 };
+type Action = {
+  type: string;
+  id?: number;
+  task?: Task;
+};
 
 // Reducer Function
-function reducer(state: task[], action: any): task[] {
+function reducer(state: Task[], action:Action): Task[] {
   // Sweet alert
   const Toast = Swal.mixin({
     toast: true,
@@ -30,7 +35,9 @@ function reducer(state: task[], action: any): task[] {
   switch (action.type) {
     case "ADD":
       let date: Date = new Date();
-      const newTask: task = action.payload;
+      
+      let newTask:Task=action.task!;
+  
       if (newTask.text.trim() === "") {
         Toast.fire({
           icon: "error",
@@ -40,17 +47,17 @@ function reducer(state: task[], action: any): task[] {
       }
       newTask.id = Math.ceil(Math.random() * 10000);
       newTask.createdAt = date.getDate();
-      let newTodos: task[] = [...state, newTask];
+      let newTodos: Task[] = [...state, newTask];
       localStorage.setItem("Tasks", JSON.stringify(newTodos));
       Toast.fire({
         icon: "success",
         title: "Task Added Successfully",
       });
       return newTodos;
-
+    
     case "UPDATE":
-      let id: number = action.payload;
-      let updatedArray: task[] = state.map((task: task) => {
+      let id: number = action.id!;
+      let updatedArray: Task[] = state.map((task: Task) => {
         if (task.id === id) {
           return { ...task, completed: !task.completed };
         }

@@ -5,41 +5,41 @@ import Task from "../../Tasks/Task";
 import "../../App.css";
 
 //Type Declarations
-type dateObjectFormat = {
+type DateObjectFormat = {
   month: string;
   day: string;
   dateValue: number;
   year: number;
 };
-type task = {
+type Task = {
   id: number;
   text: string;
   createdAt: number;
   completed: boolean;
 };
 // Function removes Old tasks
-function removeOldTask(list: task[]): task[] {
+function removeOldTask(list: Task[]): Task[] {
   let date: Date = new Date();
-  let filteredArray: task[] = list.filter(
+  let filteredArray: Task[] = list.filter(
     (task) => task.createdAt == date.getDate()
   );
   localStorage.setItem("Tasks", JSON.stringify(filteredArray));
   return filteredArray;
 }
-let initailtaskList: task[] = removeOldTask(
+let initailtaskList: Task[] = removeOldTask(
   JSON.parse(localStorage.getItem("Tasks")!) || []
 );
 // Returns a card Where dare and Task are Displayed
 function Card(): JSX.Element {
   const [showInput, setShowInput] = useState<boolean>(false);
-  const [task, setTask] = useState<task>({
+  const [task, setTask] = useState<Task>({
     id: 0,
     completed: false,
     text: "",
     createdAt: 0,
   });
   const [state, dispatch] = useReducer(reducer, initailtaskList);
-  const date: dateObjectFormat = useDate();
+  const date: DateObjectFormat = useDate();
   //Function to Show the input field
   function handleAddEvent(): void {
     setShowInput(true);
@@ -60,7 +60,7 @@ function Card(): JSX.Element {
       return;
     }
     if (task.text !== "") {
-      dispatch({ type: "ADD", payload: task });
+      dispatch({ type: "ADD", task: task });
       setTask((prevedata) => ({ ...prevedata, text: "" }));
     }
   }

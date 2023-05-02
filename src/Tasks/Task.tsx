@@ -1,10 +1,10 @@
-import React, { useEffect, useReducer } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useReducer } from "react";
 import reducer from "../store/reducer";
 import "./task.css";
 import allDone from "./../images/MicrosoftTeams-image.png";
 
 //Type Defined for the Task Array
-type todoArray = {
+type TodoArray = {
   id: number;
   text: string;
   completed: boolean;
@@ -15,9 +15,14 @@ type task = {
   createdAt: number;
   completed: boolean;
 };
+type Action = {
+  type: string;
+  id?: number;
+  task?: task;
+};
 type Props = {
   state: task[];
-  dispatch: ({}) => void;
+  dispatch: Dispatch<Action>;
 };
 // Return all the Task for Displaying
 function sort(list: task[]) {
@@ -47,7 +52,7 @@ function Task(props: Props): JSX.Element {
               type="checkbox"
               className="checkBox"
               onChange={() => {
-                dispatch({ type: "UPDATE", payload: task.id });
+                dispatch({ type: "UPDATE", id: task.id });
               }}
               checked={task.completed ? true : false}
             />
