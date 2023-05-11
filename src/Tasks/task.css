@@ -1,0 +1,55 @@
+.tasklist::-webkit-scrollbar {
+  width: 6px;
+}
+.tasklist::-webkit-scrollbar-track {
+  background-color: #e4e4e4;
+  border-radius: 100px;
+}
+.tasklist::-webkit-scrollbar-thumb {
+  background-color: #aaaaaa;
+  border-radius: 100px;
+}
+.tasklist {
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  max-height: 70%;
+  overflow: auto;
+  padding: 10px;
+}
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.incompletedTask-text {
+  color: #555555;
+  max-width: 266px;
+  overflow-wrap: break-word;
+}
+.completedTask-text {
+  color: #aaaaaa;
+  max-width: 266px;
+  overflow-wrap: break-word;
+}
+.checkBox {
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  transition: box-shadow 0.3s;
+  margin: auto 0;
+  cursor: pointer;
+  border: 3px solid lightgrey;
+  appearance: none;
+  -webkit-appearance: none;
+}
+input:checked {
+  background-size: cover;
+  background-image: url("../images/complete-task.png");
+  border: 0;
+}
+.noTasks {
+  height: 300px;
+  width: 200px;
+}

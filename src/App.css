@@ -1,0 +1,101 @@
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.card {
+  background-color: #fff;
+  height: 42rem;
+  max-width: 400px;
+  width: 100%;
+  padding: 2.5em;
+  margin: 15px;
+  position: relative;
+  color: #56596a;
+}
+.date-month-year {
+  flex-basis: 100px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.date-day {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.day {
+  display: flex;
+  align-items: center;
+}
+.month-year {
+  display: flex;
+  flex-direction: column;
+}
+.dateValue {
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+.monthValue {
+  font-weight: 500;
+}
+.dayValue {
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+
+.taskInput {
+  width: 80%;
+  height: 45px;
+  padding: 5%;
+  border: 2px solid #999;
+  border-radius: 1%;
+  margin: 0 6%;
+  position: absolute;
+  bottom: 60px;
+  right: 19px;
+}
+.instruction {
+  position: absolute;
+  bottom: 20px;
+  margin: -11px 13%;
+  font-size: 15px;
+}
+.inputfield {
+  display: flex;
+  justify-content: center;
+}
+
+/* ADD Button CSS */
+.add {
+  height: 5.2rem;
+  width: 5.2rem;
+  border-radius: 100%;
+  background: #50e3a4;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 88%;
+  align-items: center;
+  margin: 0 auto;
+  left: 50%;
+  cursor: pointer;
+  border: none;
+  transform: translate(-50%, 50%);
+}
+.plus {
+  font-size: 50px;
+  color: #999;
+}
+.padding {
+  padding: 10px;
+}
+@media only screen and (max-width: 400px) {
+  .card {
+    max-width: 90%;
+    margin: 5%;
+  }
+}
